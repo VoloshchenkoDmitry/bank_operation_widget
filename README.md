@@ -30,6 +30,21 @@ filtered_operations = filter_by_state(operations, state='EXECUTED')
 # Сортировка по дате
 sorted_operations = sort_by_date(operations, reverse=True)
 ```
+## Модуль `generators`
+
+Модуль `generators` содержит функции для работы с большими объемами данных транзакций.
+
+## Функции
+
+### `filter_by_currency(transactions, currency_code)`
+Фильтрует транзакции по заданной валюте.
+
+##Пример использования:##
+```python
+usd_transactions = filter_by_currency(transactions, "USD")
+for _ in range(2):
+   print(next(usd_transactions))
+
 
 ## Лицензия:
 

@@ -51,16 +51,19 @@ def sample_transactions():
         }
     ]
 
+
 def test_filter_by_currency(sample_transactions):
     usd_transactions = filter_by_currency(sample_transactions, "USD")
     assert next(usd_transactions)["id"] == 939719570
     assert next(usd_transactions)["id"] == 142264268
+
 
 def test_transaction_descriptions(sample_transactions):
     descriptions = transaction_descriptions(sample_transactions)
     assert next(descriptions) == "Перевод организации"
     assert next(descriptions) == "Перевод со счета на счет"
     assert next(descriptions) == "Перевод со счета на счет"
+
 
 def test_card_number_generator():
     card_numbers = card_number_generator(1, 5)

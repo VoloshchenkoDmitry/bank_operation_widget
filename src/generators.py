@@ -1,4 +1,6 @@
-def filter_by_currency(transactions, currency_code):
+from typing import Dict, List, Iterator, Iterable
+
+def filter_by_currency(transactions: List[Dict], currency_code: str) -> Iterator[Dict]:
     """
     Фильтрует транзакции по заданной валюте.
 
@@ -11,7 +13,7 @@ def filter_by_currency(transactions, currency_code):
             yield transaction
 
 
-def transaction_descriptions(transactions):
+def transaction_descriptions(transactions: List[Dict]) -> Iterator[str]:
     """
     Генератор, который возвращает описание каждой транзакции.
 
@@ -22,7 +24,7 @@ def transaction_descriptions(transactions):
         yield transaction["description"]
 
 
-def card_number_generator(start, end):
+def card_number_generator(start: int, end: int) -> Iterator[str]:
     """
     Генератор, который выдает номера банковских карт в заданном диапазоне.
 
@@ -31,12 +33,25 @@ def card_number_generator(start, end):
     :return: Итератор, который возвращает номера карт в формате XXXX XXXX XXXX XXXX.
     """
     for number in range(start, end + 1):
-        yield f"{number:016d}"[:4] + " " + f"{number:016d}"[4:8] + " " + f"{number:016d}"[8:12] + " " + f"{number:016d}"[12:16]
+        yield f"{number:016d}"[:4] + " " + f"{number:016d}"[4:8] + " " + f"{number:016d}"[
+            8:12
+        ] + " " + f"{number:016d}"[12:16]
 
 
 # Пример использования transaction_descriptions:
+transactions = [
+    {
+        "operationAmount": {"currency": {"code": "USD"}},
+        "description": "Transaction 1",
+    },
+    {
+        "operationAmount": {"currency": {"code": "EUR"}},
+        "description": "Transaction 2",
+    },
+]
+
 descriptions = transaction_descriptions(transactions)
-for _ in range(5):
+for _ in range(2):
     print(next(descriptions))
 
 # Пример использования card_number_generator:

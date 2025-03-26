@@ -1,6 +1,6 @@
 from datetime import datetime
 from functools import wraps
-from typing import Any, Callable, Optional, Tuple, Dict
+from typing import Any, Callable, Dict, Optional, Tuple
 
 
 def log(filename: Optional[str] = None) -> Callable:

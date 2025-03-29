@@ -1,0 +1,6 @@
+my_function started at 2025-03-29 15:36:51.242444 with args: (1, 2), kwargs: {}
+my_function ok. Result: 3
+my_function started at 2025-03-29 15:37:00.141097 with args: (1, 2), kwargs: {}
+my_function ok. Result: 3
+my_function started at 2025-03-29 15:37:11.387364 with args: (1, 2), kwargs: {}
+my_function ok. Result: 3

@@ -43,8 +43,28 @@ sorted_operations = sort_by_date(operations, reverse=True)
 ```python
 usd_transactions = filter_by_currency(transactions, "USD")
 for _ in range(2):
-   print(next(usd_transactions))
+    print(next(usd_transactions))
+```
 
+## Новые функции
+- Добавлена поддержка файлов CSV
+- Добавлена поддержка файлов Excel
+- Улучшенная безопасность типов
+- Комплексное покрытие тестами
+
+### Использование
+```python
+from src.file_reader import read_csv_file, read_excel_file
+
+csv_transactions = read_csv_file('transactions.csv')
+excel_transactions = read_excel_file('transactions.xlsx')
+```
+
+## Новая функциональность
+
+1. Поиск операций по описанию с использованием регулярных выражений
+2. Подсчет операций по категориям
+3. Фильтрация операций по различным параметрам
 
 ## Лицензия:
 
